@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sanctuary | Goals &amp; Macros</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface": "#ebfeee",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-bright": "#ebfeee",
+                        "error-container": "#fa746f",
+                        "surface-container-high": "#cff0d7",
+                        "on-primary": "#eafeed",
+                        "on-tertiary-container": "#536334",
+                        "primary-fixed": "#d3e8d7",
+                        "surface-tint": "#516356",
+                        "tertiary-container": "#ebfec1",
+                        "outline-variant": "#96bba0",
+                        "on-error-container": "#6e0a12",
+                        "secondary": "#4f6455",
+                        "tertiary-dim": "#49582b",
+                        "secondary-fixed": "#d1e8d5",
+                        "on-primary-fixed": "#324337",
+                        "background": "#ebfeee",
+                        "on-primary-fixed-variant": "#4e6053",
+                        "surface-container": "#d7f5de",
+                        "on-secondary-container": "#425648",
+                        "inverse-on-surface": "#8fa193",
+                        "primary-container": "#d3e8d7",
+                        "on-tertiary-fixed": "#415024",
+                        "on-primary-container": "#445649",
+                        "on-surface-variant": "#446650",
+                        "on-tertiary-fixed-variant": "#5e6e3e",
+                        "secondary-container": "#d1e8d5",
+                        "tertiary-fixed": "#ebfec1",
+                        "on-surface": "#173926",
+                        "primary": "#516356",
+                        "surface-container-highest": "#c5ecd0",
+                        "primary-fixed-dim": "#c5d9c9",
+                        "inverse-surface": "#031108",
+                        "on-background": "#173926",
+                        "inverse-primary": "#eaffed",
+                        "on-secondary-fixed-variant": "#4c6052",
+                        "tertiary": "#556536",
+                        "on-error": "#fff7f6",
+                        "on-tertiary": "#f0ffcd",
+                        "on-secondary": "#e7ffeb",
+                        "outline": "#60836b",
+                        "primary-dim": "#45574a",
+                        "error-dim": "#67040d",
+                        "surface-variant": "#c5ecd0",
+                        "error": "#a83836",
+                        "surface-container-low": "#e0fae5",
+                        "secondary-fixed-dim": "#c3dac8",
+                        "on-secondary-fixed": "#304436",
+                        "tertiary-fixed-dim": "#ddf0b4",
+                        "secondary-dim": "#435849",
+                        "surface-dim": "#bde3c7"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Manrope"],
+                        "label": ["Manrope"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        input[type=range] {
+            -webkit-appearance: none;
+            background: transparent;
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 6px;
+            background: #d3e8d7;
+            border-radius: 3px;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background: #516356;
+            margin-top: -7px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body class="bg-[#7F9183] min-h-screen text-on-background selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top Navigation -->
+<nav class="fixed top-0 w-full z-50 bg-[#ebfeee] dark:bg-emerald-950/20 backdrop-blur-xl">
+<div class="flex justify-between items-center px-8 h-20 w-full max-w-screen-2xl mx-auto">
+<div class="text-2xl font-bold text-[#516356] dark:text-emerald-200 tracking-tighter">Sanctuary</div>
+<div class="hidden md:flex items-center space-x-8 font-['Manrope'] font-medium text-sm tracking-tight">
+<a class="text-[#516356]/70 dark:text-emerald-100/60 hover:text-[#516356] transition-colors" href="#">Dashboard</a>
+<a class="text-[#516356]/70 dark:text-emerald-100/60 hover:text-[#516356] transition-colors" href="#">Diary</a>
+<a class="text-[#556536] dark:text-emerald-400 font-bold border-b-2 border-[#556536] pb-1" href="#">Goals</a>
+<a class="text-[#516356]/70 dark:text-emerald-100/60 hover:text-[#516356] transition-colors" href="#">Reports</a>
+<a class="text-[#516356]/70 dark:text-emerald-100/60 hover:text-[#516356] transition-colors" href="#">Partners</a>
+</div>
+<div class="flex items-center space-x-4">
+<button class="px-5 py-2 rounded-full bg-primary text-on-primary text-sm font-semibold hover:bg-primary-dim transition-all active:scale-95">Log Meal</button>
+<div class="w-10 h-10 rounded-full bg-surface-container-highest overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close up portrait of a smiling young man in soft natural morning light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6xasZBmlw9DPAziTMmYSRnwr-adP19_iNQ-fo8lajPex0odsnxQTuLXwRnFGEPgG8O1UEA6AQm37r71kLGPCDrxWQwySSdJnj6iRdh-51kdxM9eFK1nZ1l8EjfPeLW-I5UoDGRujdtndcCmJglHAVCS8pVX3H_cxIAYAl-nz3e1PpdhRWHfSmmvxEHZS5GtdZKeXTxamQ7In6LEfuv1TAawowArzGxUPxIEbSnoznNwXvIFaNbyDVvs6-oxgzgOte84Sx71sfOQ"/>
+</div>
+</div>
+</div>
+</nav>
+<!-- Side Navigation (Partner Context) -->
+<aside class="fixed left-0 top-20 h-[calc(100vh-5rem)] w-72 rounded-r-3xl bg-[#ebfeee] dark:bg-emerald-950/40 shadow-[40px_0_60px_-15px_rgba(23,57,38,0.05)] flex flex-col p-6 space-y-4 hidden xl:flex">
+<div class="flex items-center space-x-4 mb-6">
+<div class="w-12 h-12 rounded-2xl bg-tertiary-container overflow-hidden p-0.5">
+<img class="w-full h-full object-cover rounded-[14px]" data-alt="Portrait of a woman with warm lighting and a soft bokeh background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCW-fGMsVlZ71DitKAcRBN3KWH9Yb6qh4hO4VMy4bUS3wiV1YBjjrPbiKs0oLMatsh4wHz1-KxAkllhOF2Bm-ugHFPIszC_6nr3IR-MGu0MW8GJqqwZth6Naxig7_8op5UldgJVAPvkkoNH9aUiFrAFwZH993S5EGfqyS6KS3VXxbzTLzB8mKRizBXpdYgEOvZjyeYNrs0wDxJCgaadTj-XQIhlrOetSnvk5M989uR1Gh0WUE6FCHSdXzuZhOQkGNg5fSuhh3YNhQ"/>
+</div>
+<div>
+<p class="font-headline font-bold text-on-surface">Jamie's Status</p>
+<p class="text-xs text-on-surface-variant">85% of protein goal met</p>
+</div>
+</div>
+<nav class="space-y-2 font-['Manrope'] text-sm leading-relaxed">
+<a class="flex items-center space-x-3 p-3 text-[#516356] dark:text-emerald-100/80 mx-2 hover:bg-[#516356]/5 rounded-2xl hover:translate-x-1 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+<span>Partner Status</span>
+</a>
+<a class="flex items-center space-x-3 p-3 text-[#516356] dark:text-emerald-100/80 mx-2 hover:bg-[#516356]/5 rounded-2xl hover:translate-x-1 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+<span>Quick Log</span>
+</a>
+<a class="flex items-center space-x-3 p-3 bg-[#516356] text-white rounded-2xl mx-2 shadow-lg shadow-[#516356]/20" href="#">
+<span class="material-symbols-outlined" data-icon="analytics" style="font-variation-settings: 'FILL' 1;">analytics</span>
+<span>Nutrients</span>
+</a>
+<a class="flex items-center space-x-3 p-3 text-[#516356] dark:text-emerald-100/80 mx-2 hover:bg-[#516356]/5 rounded-2xl hover:translate-x-1 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+<div class="mt-auto p-4 bg-tertiary-container rounded-3xl">
+<p class="text-xs font-bold text-on-tertiary-container mb-2">Jamie needs 15g more protein today!</p>
+<button class="w-full py-2 bg-tertiary text-on-tertiary rounded-full text-xs font-bold hover:scale-105 transition-transform">Cheer Partner</button>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="pt-28 pb-12 px-6 xl:pl-80 max-w-7xl mx-auto">
+<!-- Header Section -->
+<header class="mb-12 text-white">
+<h1 class="text-5xl font-extrabold tracking-tight font-headline mb-2">Health Blueprint</h1>
+<p class="text-white/80 max-w-lg">Fine-tune your nutritional sanctuary. Adjust your shared trajectory and track individual progress in unison.</p>
+</header>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Macro Ratio Slider Section (Glassmorphism) -->
+<section class="md:col-span-7 glass-panel rounded-[2.5rem] p-8 text-on-surface">
+<div class="flex justify-between items-end mb-8">
+<div>
+<h2 class="text-2xl font-bold mb-1">Macro Balance</h2>
+<p class="text-sm text-on-surface-variant">Adjust your daily distribution ratios</p>
+</div>
+<div class="text-right">
+<span class="text-3xl font-black text-primary">2,450</span>
+<span class="text-xs font-bold block opacity-60">KCAL TARGET</span>
+</div>
+</div>
+<div class="space-y-8">
+<!-- Protein Slider -->
+<div>
+<div class="flex justify-between mb-2">
+<label class="font-bold flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-primary"></span>
+                                Protein
+                            </label>
+<span class="font-bold text-primary">30% <span class="text-xs font-normal opacity-60 ml-1">184g</span></span>
+</div>
+<input class="w-full" max="100" min="0" type="range" value="30"/>
+</div>
+<!-- Carbs Slider -->
+<div>
+<div class="flex justify-between mb-2">
+<label class="font-bold flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-secondary"></span>
+                                Carbohydrates
+                            </label>
+<span class="font-bold text-secondary">45% <span class="text-xs font-normal opacity-60 ml-1">275g</span></span>
+</div>
+<input class="w-full" max="100" min="0" type="range" value="45"/>
+</div>
+<!-- Fat Slider -->
+<div>
+<div class="flex justify-between mb-2">
+<label class="font-bold flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-tertiary"></span>
+                                Healthy Fats
+                            </label>
+<span class="font-bold text-tertiary">25% <span class="text-xs font-normal opacity-60 ml-1">68g</span></span>
+</div>
+<input class="w-full" max="100" min="0" type="range" value="25"/>
+</div>
+</div>
+<div class="mt-10 p-4 bg-surface-container rounded-2xl flex items-center justify-between">
+<p class="text-xs font-medium text-on-surface-variant">Balanced for: <span class="font-bold">Muscle Maintenance</span></p>
+<button class="text-xs font-bold text-primary underline underline-offset-4">Reset to Default</button>
+</div>
+</section>
+<!-- Mutual Health Milestones (Bento Small) -->
+<section class="md:col-span-5 bg-tertiary-container rounded-[2.5rem] p-8 flex flex-col justify-between">
+<div>
+<h2 class="text-2xl font-bold text-on-tertiary-container mb-6">Mutual Milestones</h2>
+<div class="space-y-6">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 bg-white/50 rounded-2xl flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+</div>
+<div>
+<p class="font-bold text-on-tertiary-container">12-Day Calorie Streak</p>
+<p class="text-xs text-on-tertiary-fixed-variant">Both hit targets for 12 days straight</p>
+<div class="w-full bg-white/30 h-1.5 rounded-full mt-2">
+<div class="bg-tertiary w-4/5 h-full rounded-full"></div>
+</div>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 bg-white/50 rounded-2xl flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">water_drop</span>
+</div>
+<div>
+<p class="font-bold text-on-tertiary-container">Hydration Heroes</p>
+<p class="text-xs text-on-tertiary-fixed-variant">8L shared water intake reached</p>
+<div class="w-full bg-white/30 h-1.5 rounded-full mt-2">
+<div class="bg-tertiary w-full h-full rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-8 border-t border-on-tertiary-container/10 pt-6">
+<p class="text-xs font-bold uppercase tracking-widest text-on-tertiary-container/60 mb-2">NEXT REWARD</p>
+<p class="font-headline font-bold text-lg text-on-tertiary-container">Weekend Wellness Escape</p>
+</div>
+</section>
+<!-- Weight Progress Chart Section (Bento Large) -->
+<section class="md:col-span-12 bg-surface rounded-[2.5rem] p-10 overflow-hidden relative">
+<div class="flex flex-col md:flex-row justify-between md:items-center gap-6 mb-12">
+<div>
+<h2 class="text-3xl font-extrabold text-on-surface tracking-tight">Weight Trajectory</h2>
+<p class="text-on-surface-variant">Comparative progress over the last 6 months</p>
+</div>
+<div class="flex gap-4">
+<div class="flex items-center gap-2 px-4 py-2 bg-surface-container-low rounded-full border border-outline-variant/15">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="text-xs font-bold">You (Alex)</span>
+</div>
+<div class="flex items-center gap-2 px-4 py-2 bg-surface-container-low rounded-full border border-outline-variant/15">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span class="text-xs font-bold">Jamie</span>
+</div>
+</div>
+</div>
+<!-- Abstract Chart Visualization -->
+<div class="relative h-64 w-full flex items-end gap-1">
+<!-- Placeholder for Chart Graphics using CSS Gradients & Curves -->
+<div class="absolute inset-0 flex items-end">
+<svg class="w-full h-full preserve-3d" viewbox="0 0 1000 200">
+<!-- Curve 1 (User) -->
+<path d="M0,150 C100,140 200,160 300,130 S500,100 600,110 S800,80 1000,70" fill="none" stroke="#516356" stroke-linecap="round" stroke-width="4"></path>
+<!-- Curve 2 (Partner) -->
+<path d="M0,120 C100,115 200,105 300,110 S500,90 600,85 S800,60 1000,55" fill="none" stroke="#556536" stroke-dasharray="8 4" stroke-linecap="round" stroke-width="4"></path>
+</svg>
+</div>
+<!-- Chart Grid Lines -->
+<div class="absolute inset-0 flex flex-col justify-between opacity-5 pointer-events-none">
+<div class="border-t border-on-surface w-full"></div>
+<div class="border-t border-on-surface w-full"></div>
+<div class="border-t border-on-surface w-full"></div>
+<div class="border-t border-on-surface w-full"></div>
+</div>
+</div>
+<div class="flex justify-between mt-6 text-[10px] font-bold text-on-surface-variant uppercase tracking-widest px-2">
+<span>JAN</span>
+<span>FEB</span>
+<span>MAR</span>
+<span>APR</span>
+<span>MAY</span>
+<span>JUN</span>
+</div>
+<div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-8">
+<div class="text-center md:text-left">
+<p class="text-xs font-bold text-on-surface-variant mb-1">Total Loss (Shared)</p>
+<p class="text-3xl font-black text-primary">-14.2<span class="text-sm font-medium ml-1">kg</span></p>
+</div>
+<div class="text-center md:text-left">
+<p class="text-xs font-bold text-on-surface-variant mb-1">Shared Muscle Gain</p>
+<p class="text-3xl font-black text-tertiary">+3.5<span class="text-sm font-medium ml-1">kg</span></p>
+</div>
+<div class="text-center md:text-left">
+<p class="text-xs font-bold text-on-surface-variant mb-1">Consistency Score</p>
+<p class="text-3xl font-black text-on-surface">92<span class="text-sm font-medium ml-1">%</span></p>
+</div>
+<div class="text-center md:text-left">
+<p class="text-xs font-bold text-on-surface-variant mb-1">Goal Alignment</p>
+<p class="text-3xl font-black text-secondary">High</p>
+</div>
+</div>
+</section>
+</div>
+<!-- Call to Action Section -->
+<section class="mt-12 flex flex-col md:flex-row items-center justify-between gap-8 p-10 bg-surface-container-highest rounded-[2.5rem]">
+<div class="flex items-center gap-6">
+<div class="w-16 h-16 rounded-full bg-white flex items-center justify-center shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-primary scale-150">auto_awesome</span>
+</div>
+<div>
+<h3 class="text-xl font-bold text-on-surface">AI Smart Adjust</h3>
+<p class="text-sm text-on-surface-variant">Based on your last 2 weeks, we suggest a 5% increase in Protein.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<button class="px-8 py-3 bg-primary text-on-primary rounded-full font-bold hover:bg-primary-dim transition-all shadow-lg shadow-primary/20">Apply Recommendation</button>
+<button class="px-8 py-3 bg-white text-on-surface rounded-full font-bold hover:bg-surface-container transition-all">Dismiss</button>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 bg-[#ebfeee] backdrop-blur-xl h-20 flex justify-around items-center px-6 z-50">
+<a class="flex flex-col items-center text-[#516356]/70" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+</a>
+<a class="flex flex-col items-center text-[#516356]/70" href="#">
+<span class="material-symbols-outlined">menu_book</span>
+</a>
+<a class="flex flex-col items-center text-[#556536] font-bold" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">target</span>
+</a>
+<a class="flex flex-col items-center text-[#516356]/70" href="#">
+<span class="material-symbols-outlined">group</span>
+</a>
+<a class="flex flex-col items-center text-[#516356]/70" href="#">
+<span class="material-symbols-outlined">settings</span>
+</a>
+</nav>
+</body></html>

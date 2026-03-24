@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx:*)",
+      "Read(//Users/justinzhou/Desktop/**)",
+      "Bash(mkdir -p bitemates-temp)",
+      "Bash(rm -rf bitemates-temp)",
+      "Bash(printf \"N\\\\nN\\\\n\")",
+      "Bash(yes \"N\")",
+      "Bash(cp -r bitemates-temp/. BiteMates/)",
+      "Bash(npm install:*)",
+      "Bash(npm run:*)",
+      "Bash(rm -rf .git)",
+      "Bash(git init:*)",
+      "Bash(git add:*)"
+    ]
+  }
+}

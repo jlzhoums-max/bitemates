@@ -1,0 +1,114 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* ── Surface & Background ── */
+  --color-surface: #ebfeee;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-bright: #ebfeee;
+  --color-surface-container-high: #cff0d7;
+  --color-surface-container: #d7f5de;
+  --color-surface-container-low: #e0fae5;
+  --color-surface-container-highest: #c5ecd0;
+  --color-surface-variant: #c5ecd0;
+  --color-surface-dim: #bde3c7;
+  --color-surface-tint: #516356;
+  --color-on-surface: #173926;
+  --color-on-surface-variant: #446650;
+  --color-on-background: #173926;
+  --color-background: #ebfeee;
+
+  /* ── Primary ── */
+  --color-primary: #516356;
+  --color-primary-dim: #45574a;
+  --color-primary-container: #d3e8d7;
+  --color-primary-fixed: #d3e8d7;
+  --color-primary-fixed-dim: #c5d9c9;
+  --color-on-primary: #eafeed;
+  --color-on-primary-container: #445649;
+  --color-on-primary-fixed: #324337;
+  --color-on-primary-fixed-variant: #4e6053;
+
+  /* ── Secondary ── */
+  --color-secondary: #4f6455;
+  --color-secondary-dim: #435849;
+  --color-secondary-container: #d1e8d5;
+  --color-secondary-fixed: #d1e8d5;
+  --color-secondary-fixed-dim: #c3dac8;
+  --color-on-secondary: #e7ffeb;
+  --color-on-secondary-container: #425648;
+  --color-on-secondary-fixed: #304436;
+  --color-on-secondary-fixed-variant: #4c6052;
+
+  /* ── Tertiary ── */
+  --color-tertiary: #556536;
+  --color-tertiary-dim: #49582b;
+  --color-tertiary-container: #ebfec1;
+  --color-tertiary-fixed: #ebfec1;
+  --color-tertiary-fixed-dim: #ddf0b4;
+  --color-on-tertiary: #f0ffcd;
+  --color-on-tertiary-container: #536334;
+  --color-on-tertiary-fixed: #415024;
+  --color-on-tertiary-fixed-variant: #5e6e3e;
+
+  /* ── Error ── */
+  --color-error: #a83836;
+  --color-error-dim: #67040d;
+  --color-error-container: #fa746f;
+  --color-on-error: #fff7f6;
+  --color-on-error-container: #6e0a12;
+
+  /* ── Outline & Inverse ── */
+  --color-outline: #60836b;
+  --color-outline-variant: #96bba0;
+  --color-inverse-surface: #031108;
+  --color-inverse-on-surface: #8fa193;
+  --color-inverse-primary: #eaffed;
+
+  /* ── Typography ── */
+  --font-headline: "Manrope", sans-serif;
+  --font-body: "Manrope", sans-serif;
+  --font-label: "Manrope", sans-serif;
+
+  /* ── Border Radius ── */
+  --radius-DEFAULT: 0.25rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-full: 9999px;
+}
+
+body {
+  font-family: "Manrope", sans-serif;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  background: transparent;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 6px;
+  background: #d3e8d7;
+  border-radius: 3px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: #516356;
+  margin-top: -7px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
