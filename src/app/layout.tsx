@@ -10,7 +10,17 @@ const manrope = Manrope({
 
 export const metadata: Metadata = {
   title: "BiteMates",
-  description: "Your Shared Sanctuary for Nutrition",
+  description: "Your shared sanctuary for nutrition",
+  manifest: "/manifest.json",
+  themeColor: "#ebfeee",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "BiteMates",
+  },
+  icons: {
+    apple: "/icon-192.png",
+  },
 };
 
 export default function RootLayout({
