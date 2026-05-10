@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Manrope } from "next/font/google";
 import "./globals.css";
 
@@ -12,7 +12,6 @@ export const metadata: Metadata = {
   title: "BiteMates",
   description: "Your shared sanctuary for nutrition",
   manifest: "/manifest.json",
-  themeColor: "#ebfeee",
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
@@ -21,6 +20,10 @@ export const metadata: Metadata = {
   icons: {
     apple: "/icon-192.png",
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#ebfeee",
 };
 
 export default function RootLayout({
