@@ -95,9 +95,9 @@
 
 - [ ] **2.1** Run remaining schema from SPECIFICATIONS.md §6.1: `shared_spaces`, `shared_space_members`, `invites`, `food_log_entries`, `favorites`. All indexes.
 - [ ] **2.2** Run `get_user_space()` and `get_partner_ids()` helper functions from §6.2
-- [ ] **2.3** Enable RLS on all tables in Supabase dashboard
+- [ ] **2.3** Enable RLS on all tables in Supabase dashboard _(partial: `profiles` enabled 2026-05-09 to unblock Phase 1.7; other tables pending)_
 - [ ] **2.4** Write RLS policies (SQL in Supabase) per §6.3:
-  - profiles: own row + same-space rows (via `shared_space_members` join)
+  - profiles: own row + same-space rows (via `shared_space_members` join) _(partial: own-row SELECT/UPDATE done 2026-05-09; same-space SELECT deferred until 2.1 lands `shared_space_members`)_
   - food_log_entries: own + same-space members can SELECT, only owner CRUD their own
   - shared_space_members: see members of own spaces
   - invites: see own created OR own redeemed
@@ -335,4 +335,8 @@ If anything in this plan needs to change mid-build, append to this section with 
 | Date | Change | Reason |
 |------|--------|--------|
 | 2026-05-08 | v2.0 spec freeze | 6 decisions made; baseline for build |
+| 2026-05-09 | Phase 1.5 / 1.6 built in opposite order from spec | Can't test login email/password without an email account first |
+| 2026-05-09 | Email confirmation disabled in Supabase for MVP | Email/password is a first-class path equal to Google, not a fallback. Re-enable in v1.1 if app opens beyond Justin and Nhi |
+| 2026-05-09 | Sign-out helper built in Phase 1.5 instead of waiting for 1.10 top nav | Needed to test auth state transitions without manual cookie clearing |
+| 2026-05-09 | profiles RLS pulled forward from Phase 2 to unblock Phase 1.7 onboarding | Server-side profile reads in OAuth callback and `/onboarding/profile` were silently returning null because RLS was on with zero policies. Own-row SELECT/UPDATE policies added now; same-space policy stays in Phase 2.4 (depends on `shared_space_members` from 2.1). |
 | | | |
