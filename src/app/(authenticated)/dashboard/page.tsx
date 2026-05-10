@@ -1,6 +1,7 @@
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
-import { signOutAction } from "@/app/auth/actions";
+
+const AUTO_USERNAME = /^user_[0-9a-f]{8}$/;
 
 export default async function DashboardPage() {
   const supabase = await createClient();
@@ -10,6 +11,16 @@ export default async function DashboardPage() {
 
   if (!user) {
     redirect("/login");
+  }
+
+  const { data: profile } = await supabase
+    .from("profiles")
+    .select("username")
+    .eq("id", user.id)
+    .single();
+
+  if (profile && AUTO_USERNAME.test(profile.username)) {
+    redirect("/onboarding/profile");
   }
 
   return (
@@ -25,14 +36,6 @@ export default async function DashboardPage() {
           Real dashboard arrives in Phase 7. This page exists so the OAuth
           callback has somewhere to land.
         </p>
-        <form action={signOutAction}>
-          <button
-            type="submit"
-            className="mt-4 rounded-full bg-surface-container px-5 py-2 text-sm font-medium text-on-surface transition hover:bg-surface-container-high"
-          >
-            Sign out
-          </button>
-        </form>
       </div>
     </main>
   );
