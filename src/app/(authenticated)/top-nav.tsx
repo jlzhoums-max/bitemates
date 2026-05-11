@@ -59,6 +59,14 @@ export function TopNav() {
               >
                 Goals
               </Link>
+              <Link
+                href="/diary"
+                role="menuitem"
+                onClick={() => setMenuOpen(false)}
+                className="block px-4 py-2.5 text-sm text-on-surface transition hover:bg-surface-container"
+              >
+                Diary
+              </Link>
               <form action={signOutAction}>
                 <button
                   type="submit"
@@ -112,6 +120,13 @@ export function TopNav() {
                 className="block w-full rounded-full bg-surface-container px-5 py-3 text-left text-sm font-medium text-on-surface transition hover:bg-surface-container-high"
               >
                 Goals
+              </Link>
+              <Link
+                href="/diary"
+                onClick={() => setDrawerOpen(false)}
+                className="block w-full rounded-full bg-surface-container px-5 py-3 text-left text-sm font-medium text-on-surface transition hover:bg-surface-container-high"
+              >
+                Diary
               </Link>
               <form action={signOutAction}>
                 <button
