@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useTransition } from "react";
+import type { ActionResult } from "./actions";
 
 type FormState = {
   food_name: string;
@@ -140,10 +141,12 @@ function Field({
 type Props = {
   initialName: string;
   onClose: () => void;
-  onSave: (payload: ManualPayload) => void;
+  onSave: (payload: ManualPayload) => Promise<ActionResult>;
 };
 
 export function ManualEntryModal({ initialName, onClose, onSave }: Props) {
+  const [pending, startTransition] = useTransition();
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const [initialState] = useState<FormState>({
     food_name: initialName,
     serving_size: "",
@@ -203,8 +206,15 @@ export function ManualEntryModal({ initialName, onClose, onSave }: Props) {
   }
 
   function submit() {
-    if (!isValid) return;
-    onSave(buildPayload(form));
+    if (!isValid || pending) return;
+    setSubmitError(null);
+    startTransition(async () => {
+      const result = await onSave(buildPayload(form));
+      if ("error" in result) {
+        setSubmitError(result.error);
+      }
+      // On success the parent unmounts this modal — nothing else to do.
+    });
   }
 
   return (
@@ -420,21 +430,31 @@ export function ManualEntryModal({ initialName, onClose, onSave }: Props) {
           </section>
         </div>
 
+        {submitError && (
+          <div
+            role="alert"
+            className="mx-6 mb-2 rounded-2xl bg-error-container px-4 py-2 text-xs text-on-error-container"
+          >
+            {submitError}
+          </div>
+        )}
+
         <div className="flex justify-end gap-2 px-6 py-4">
           <button
             type="button"
             onClick={attemptClose}
-            className="rounded-full bg-surface-container px-5 py-2 text-sm font-medium text-on-surface transition hover:bg-surface-container-high"
+            disabled={pending}
+            className="rounded-full bg-surface-container px-5 py-2 text-sm font-medium text-on-surface transition hover:bg-surface-container-high disabled:opacity-40"
           >
             Cancel
           </button>
           <button
             type="button"
             onClick={submit}
-            disabled={!isValid}
+            disabled={!isValid || pending}
             className="rounded-full bg-primary px-5 py-2 text-sm font-semibold text-on-primary transition hover:bg-primary-dim disabled:cursor-not-allowed disabled:opacity-40"
           >
-            Add
+            {pending ? "Adding…" : "Add"}
           </button>
         </div>
       </div>
