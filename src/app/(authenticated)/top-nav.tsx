@@ -1,11 +1,29 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { signOutAction } from "@/app/auth/actions";
 
 export function TopNav() {
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+    const onDocClick = (e: MouseEvent) => {
+      if (!menuRef.current?.contains(e.target as Node)) setMenuOpen(false);
+    };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMenuOpen(false);
+    };
+    document.addEventListener("mousedown", onDocClick);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("mousedown", onDocClick);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [menuOpen]);
 
   return (
     <>
@@ -17,14 +35,42 @@ export function TopNav() {
           BiteMates
         </Link>
 
-        <form action={signOutAction} className="hidden md:block">
+        <div ref={menuRef} className="relative hidden md:block">
           <button
-            type="submit"
-            className="rounded-full bg-surface-container-high px-4 py-2 text-sm font-medium text-on-surface transition hover:bg-surface-container-highest"
+            type="button"
+            aria-label="Settings"
+            aria-haspopup="menu"
+            aria-expanded={menuOpen}
+            onClick={() => setMenuOpen((v) => !v)}
+            className="flex h-10 w-10 items-center justify-center rounded-full text-on-surface transition hover:bg-surface-container-high"
           >
-            Sign out
+            <span className="material-symbols-outlined">settings</span>
           </button>
-        </form>
+          {menuOpen && (
+            <div
+              role="menu"
+              className="absolute right-0 top-12 w-44 overflow-hidden rounded-2xl bg-surface-container-lowest py-1 shadow-xl"
+            >
+              <Link
+                href="/goals"
+                role="menuitem"
+                onClick={() => setMenuOpen(false)}
+                className="block px-4 py-2.5 text-sm text-on-surface transition hover:bg-surface-container"
+              >
+                Goals
+              </Link>
+              <form action={signOutAction}>
+                <button
+                  type="submit"
+                  role="menuitem"
+                  className="w-full px-4 py-2.5 text-left text-sm text-on-surface transition hover:bg-surface-container"
+                >
+                  Sign out
+                </button>
+              </form>
+            </div>
+          )}
+        </div>
 
         <button
           type="button"
@@ -59,14 +105,23 @@ export function TopNav() {
                 <span className="material-symbols-outlined">close</span>
               </button>
             </div>
-            <form action={signOutAction}>
-              <button
-                type="submit"
-                className="w-full rounded-full bg-surface-container px-5 py-3 text-left text-sm font-medium text-on-surface transition hover:bg-surface-container-high"
+            <div className="space-y-2">
+              <Link
+                href="/goals"
+                onClick={() => setDrawerOpen(false)}
+                className="block w-full rounded-full bg-surface-container px-5 py-3 text-left text-sm font-medium text-on-surface transition hover:bg-surface-container-high"
               >
-                Sign out
-              </button>
-            </form>
+                Goals
+              </Link>
+              <form action={signOutAction}>
+                <button
+                  type="submit"
+                  className="w-full rounded-full bg-surface-container px-5 py-3 text-left text-sm font-medium text-on-surface transition hover:bg-surface-container-high"
+                >
+                  Sign out
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       )}
